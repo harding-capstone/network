@@ -15,7 +15,7 @@
   <version>1.0.0-SNAPSHOT</version>
 
   <name>network</name>
-  <description>Logic for the game</description>
+  <description>Game networking</description>
   <url>https://github.com/harding-capstone/network</url>
 
   <properties>
@@ -55,7 +55,7 @@
       <dependency>
         <groupId>com.shepherdjerred.capstone</groupId>
         <artifactId>logic</artifactId>
-        <verison>1.0.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
       </dependency>
   </dependencies>
 </project>
