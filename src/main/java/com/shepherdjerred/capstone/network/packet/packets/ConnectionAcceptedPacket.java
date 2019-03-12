@@ -1,6 +1,5 @@
-package com.shepherdjerred.capstone.network.message;
+package com.shepherdjerred.capstone.network.packet.packets;
 
-import com.shepherdjerred.capstone.network.event.GameEvent;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class Message {
+public class ConnectionAcceptedPacket implements Packet {
 
-  private final GameEvent gameEvent;
 }

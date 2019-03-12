@@ -1,4 +1,4 @@
-package com.shepherdjerred.capstone.network.event;
+package com.shepherdjerred.capstone.network.packet.packets;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class ChatGameEvent implements GameEvent {
-  private final String sender;
-  private final String message;
+public class PlayerDescriptionPacket implements Packet {
+
+  private final String name;
 }
