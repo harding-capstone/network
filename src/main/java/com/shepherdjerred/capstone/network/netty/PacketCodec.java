@@ -21,8 +21,7 @@ public class PacketCodec extends ByteToMessageCodec<Packet> {
   }
 
   @Override
-  protected void decode(ChannelHandlerContext ctx, ByteBuf packetAsByteBuf, List<Object> out)
-      throws Exception {
+  protected void decode(ChannelHandlerContext ctx, ByteBuf packetAsByteBuf, List<Object> out) {
     int numberOfBytes = packetAsByteBuf.readableBytes();
     byte[] readBytes = new byte[numberOfBytes - 4];
     packetAsByteBuf.skipBytes(4);
