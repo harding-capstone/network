@@ -13,5 +13,4 @@ import lombok.ToString;
 public class PlayerDescriptionPacket implements Packet {
 
   private final String name;
-  private final Element element;
 }
