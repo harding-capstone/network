@@ -1,6 +1,6 @@
 package com.shepherdjerred.capstone.network.packet.packets;
 
-import com.shepherdjerred.capstone.common.player.Element;
+import com.shepherdjerred.capstone.common.player.Player;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class PlayerDescriptionPacket implements Packet {
+public class PlayerJoinedPacket implements Packet {
+  private final Player player;
 
-  private final String name;
 }
