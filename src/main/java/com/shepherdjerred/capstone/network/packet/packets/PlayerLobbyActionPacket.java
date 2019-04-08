@@ -10,7 +10,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class PlayerJoinedPacket implements Packet {
+public class PlayerLobbyActionPacket implements Packet {
   private final Player player;
+  private final LobbyAction lobbyAction;
 
 }
