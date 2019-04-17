@@ -1,6 +1,6 @@
 package com.shepherdjerred.capstone.network.packet.packets;
 
-import com.shepherdjerred.capstone.logic.turn.Turn;
+import com.shepherdjerred.capstone.common.lobby.LobbySettings;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
-public class TurnPacket implements Packet {
-  private final Turn turn;
+public class ServerBroadcastPacket implements Packet {
+  public String name;
+  public LobbySettings lobbySettings;
 }

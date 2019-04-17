@@ -13,5 +13,4 @@ import lombok.ToString;
 @AllArgsConstructor
 public class GameOverPacket implements Packet {
   private final Status status;
-  private final QuoridorPlayer victor;
 }

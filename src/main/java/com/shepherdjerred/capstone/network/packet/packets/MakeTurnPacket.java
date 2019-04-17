@@ -1,6 +1,5 @@
 package com.shepherdjerred.capstone.network.packet.packets;
 
-import com.shepherdjerred.capstone.common.player.Player;
 import com.shepherdjerred.capstone.logic.turn.Turn;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -13,5 +12,4 @@ import lombok.ToString;
 @AllArgsConstructor
 public class MakeTurnPacket implements Packet {
   private final Turn turn;
-  private final Player player;
 }
