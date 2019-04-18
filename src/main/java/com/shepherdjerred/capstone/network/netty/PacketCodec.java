@@ -1,12 +1,12 @@
 package com.shepherdjerred.capstone.network.netty;
 
-import com.shepherdjerred.capstone.network.packet.packets.Packet;
-import com.shepherdjerred.capstone.network.packet.serialization.PacketSerializer;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.ByteToMessageCodec;
-import java.util.List;
-import lombok.AllArgsConstructor;
+    import com.shepherdjerred.capstone.network.packet.packets.Packet;
+    import com.shepherdjerred.capstone.network.packet.serialization.PacketSerializer;
+    import io.netty.buffer.ByteBuf;
+    import io.netty.channel.ChannelHandlerContext;
+    import io.netty.handler.codec.ByteToMessageCodec;
+    import java.util.List;
+    import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class PacketCodec extends ByteToMessageCodec<Packet> {
