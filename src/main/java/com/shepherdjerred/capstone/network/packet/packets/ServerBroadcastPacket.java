@@ -11,6 +11,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @AllArgsConstructor
 public class ServerBroadcastPacket implements Packet {
-  public String name;
+
   public LobbySettings lobbySettings;
 }
