@@ -1,15 +1,14 @@
 package com.shepherdjerred.capstone.network.packet.packets;
 
+import com.shepherdjerred.capstone.common.player.Player;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
-public class ReconnectKeyPacket implements Packet {
+public class PlayerJoinPacket implements Packet {
 
-  private final long key;
+  private final Player player;
 }
