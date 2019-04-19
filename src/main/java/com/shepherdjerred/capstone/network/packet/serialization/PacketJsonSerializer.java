@@ -5,6 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+import com.shepherdjerred.capstone.common.player.AiPlayer;
+import com.shepherdjerred.capstone.common.player.HumanPlayer;
+import com.shepherdjerred.capstone.common.player.Player;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionAcceptedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionRejectedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.Packet;
@@ -26,9 +29,14 @@ public class PacketJsonSerializer implements PacketSerializer {
         .registerSubtype(PlayerJoinPacket.class)
         .registerSubtype(ServerBroadcastPacket.class);
 
+    var playerTypeFactor = RuntimeTypeAdapterFactory.of(Player.class, "playerType")
+        .registerSubtype(HumanPlayer.class)
+        .registerSubtype(AiPlayer.class);
+
     gson = new GsonBuilder()
         .enableComplexMapKeySerialization()
         .registerTypeAdapterFactory(packetTypeFactory)
+        .registerTypeAdapterFactory(playerTypeFactor)
         .create();
   }
 
