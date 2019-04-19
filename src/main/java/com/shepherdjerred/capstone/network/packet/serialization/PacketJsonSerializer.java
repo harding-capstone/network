@@ -35,12 +35,12 @@ public class PacketJsonSerializer implements PacketSerializer {
   @Override
   public byte[] toBytes(Packet packet) {
     var packetAsJson = gson.toJson(packet, Packet.class);
-    return packetAsJson.getBytes(Charsets.UTF_16);
+    return packetAsJson.getBytes(Charsets.UTF_8);
   }
 
   @Override
   public Packet fromBytes(byte[] packetAsBytes) {
-    var packetAsString = new String(packetAsBytes, Charsets.UTF_16);
+    var packetAsString = new String(packetAsBytes, Charsets.UTF_8);
     return gson.fromJson(packetAsString, new TypeToken<Packet>() {
     }.getType());
   }
