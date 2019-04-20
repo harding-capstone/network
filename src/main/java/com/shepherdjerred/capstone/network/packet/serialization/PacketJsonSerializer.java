@@ -8,12 +8,15 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import com.shepherdjerred.capstone.common.player.AiPlayer;
 import com.shepherdjerred.capstone.common.player.HumanPlayer;
 import com.shepherdjerred.capstone.common.player.Player;
+import com.shepherdjerred.capstone.logic.turn.Turn;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionAcceptedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionRejectedPacket;
+import com.shepherdjerred.capstone.network.packet.packets.DoTurnPacket;
 import com.shepherdjerred.capstone.network.packet.packets.Packet;
 import com.shepherdjerred.capstone.network.packet.packets.PlayerDescriptionPacket;
 import com.shepherdjerred.capstone.network.packet.packets.PlayerJoinPacket;
 import com.shepherdjerred.capstone.network.packet.packets.ServerBroadcastPacket;
+import com.shepherdjerred.capstone.network.packet.packets.StartMatchPacket;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -27,16 +30,21 @@ public class PacketJsonSerializer implements PacketSerializer {
         .registerSubtype(ConnectionRejectedPacket.class)
         .registerSubtype(PlayerDescriptionPacket.class)
         .registerSubtype(PlayerJoinPacket.class)
-        .registerSubtype(ServerBroadcastPacket.class);
+        .registerSubtype(ServerBroadcastPacket.class)
+        .registerSubtype(StartMatchPacket.class)
+        .registerSubtype(DoTurnPacket.class);
 
-    var playerTypeFactor = RuntimeTypeAdapterFactory.of(Player.class, "playerType")
+    var turnTypeFactory = RuntimeTypeAdapterFactory.of(Turn.class, "turnTurn");
+
+    var playerTypeFactory = RuntimeTypeAdapterFactory.of(Player.class, "playerType")
         .registerSubtype(HumanPlayer.class)
         .registerSubtype(AiPlayer.class);
 
     gson = new GsonBuilder()
         .enableComplexMapKeySerialization()
         .registerTypeAdapterFactory(packetTypeFactory)
-        .registerTypeAdapterFactory(playerTypeFactor)
+        .registerTypeAdapterFactory(playerTypeFactory)
+        .registerTypeAdapterFactory(turnTypeFactory)
         .create();
   }
 
