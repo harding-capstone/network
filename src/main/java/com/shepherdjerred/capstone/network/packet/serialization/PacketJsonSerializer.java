@@ -12,6 +12,7 @@ import com.shepherdjerred.capstone.logic.turn.Turn;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionAcceptedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionRejectedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.DoTurnPacket;
+import com.shepherdjerred.capstone.network.packet.packets.FillSlotsWithAiPacket;
 import com.shepherdjerred.capstone.network.packet.packets.Packet;
 import com.shepherdjerred.capstone.network.packet.packets.PlayerDescriptionPacket;
 import com.shepherdjerred.capstone.network.packet.packets.PlayerJoinPacket;
@@ -32,7 +33,8 @@ public class PacketJsonSerializer implements PacketSerializer {
         .registerSubtype(PlayerJoinPacket.class)
         .registerSubtype(ServerBroadcastPacket.class)
         .registerSubtype(StartMatchPacket.class)
-        .registerSubtype(DoTurnPacket.class);
+        .registerSubtype(DoTurnPacket.class)
+        .registerSubtype(FillSlotsWithAiPacket.class);
 
     var turnTypeFactory = RuntimeTypeAdapterFactory.of(Turn.class, "turnTurn");
 
