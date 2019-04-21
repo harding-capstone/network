@@ -8,6 +8,10 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import com.shepherdjerred.capstone.common.player.AiPlayer;
 import com.shepherdjerred.capstone.common.player.HumanPlayer;
 import com.shepherdjerred.capstone.common.player.Player;
+import com.shepherdjerred.capstone.logic.turn.JumpPawnDiagonalTurn;
+import com.shepherdjerred.capstone.logic.turn.JumpPawnStraightTurn;
+import com.shepherdjerred.capstone.logic.turn.NormalMovePawnTurn;
+import com.shepherdjerred.capstone.logic.turn.PlaceWallTurn;
 import com.shepherdjerred.capstone.logic.turn.Turn;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionAcceptedPacket;
 import com.shepherdjerred.capstone.network.packet.packets.ConnectionRejectedPacket;
@@ -36,7 +40,11 @@ public class PacketJsonSerializer implements PacketSerializer {
         .registerSubtype(DoTurnPacket.class)
         .registerSubtype(FillSlotsWithAiPacket.class);
 
-    var turnTypeFactory = RuntimeTypeAdapterFactory.of(Turn.class, "turnTurn");
+    var turnTypeFactory = RuntimeTypeAdapterFactory.of(Turn.class, "turnTurn")
+        .registerSubtype(NormalMovePawnTurn.class)
+        .registerSubtype(JumpPawnDiagonalTurn.class)
+        .registerSubtype(JumpPawnStraightTurn.class)
+        .registerSubtype(PlaceWallTurn.class);
 
     var playerTypeFactory = RuntimeTypeAdapterFactory.of(Player.class, "playerType")
         .registerSubtype(HumanPlayer.class)
